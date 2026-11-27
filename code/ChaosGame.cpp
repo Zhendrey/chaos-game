@@ -23,10 +23,15 @@ int main()
 	Font font;
 	font.loadFromFile("fonts/arialbd.ttf");
 	
+	// Display instructions
 	Text instructions;
 	instructions.setFont(font);
 	instructions.setString("Click on any three points on the screen, then click on a fourth point to start the algorithm");
-	instructions.setCharacterSize(24);
+	instructions.setCharacterSize(22);
+
+	// Center the text on the screen
+	FloatRect textRect = instructions.getLocalBounds();
+	instructions.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
 
 	while (window.isOpen())
 	{
