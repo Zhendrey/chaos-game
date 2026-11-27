@@ -91,6 +91,9 @@ int main()
 		    ///push back the newly generated coord.
 			int randVertexIndex = rand() % vertices.size();
 			Vector2f selectedVertice = vertices.at(randVertexIndex);
+			Vector2f lastPoint = points.at(points.size() - 1);
+			Vector2f newPoint((selectedVertice.x + lastPoint.x) / 2, (selectedVertice.y + lastPoint.y) / 2);
+			points.push_back(newPoint);
 		}
 	
 		/*
