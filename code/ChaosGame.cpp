@@ -19,6 +19,15 @@ int main()
 	vector<Vector2f> vertices;
 	vector<Vector2f> points;
 
+	// Load the font
+	Font font;
+	font.loadFromFile("fonts/arialbd.ttf");
+	
+	Text instructions;
+	instructions.setFont(font);
+	instructions.setString("Click on any three points on the screen, then, click on a fourth point to start the algorithm");
+	instructions.setCharacterSize(24);
+
 	while (window.isOpen())
 	{
 		/*
@@ -78,6 +87,7 @@ int main()
 		****************************************
 		*/
 		window.clear();
+		window.draw(instructions);
 		for(int i = 0; i < vertices.size(); i++)
 		{
 		    RectangleShape rect(Vector2f(10,10));
