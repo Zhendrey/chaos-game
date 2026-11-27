@@ -85,15 +85,19 @@ int main()
 	
 		if(points.size() > 0)
 		{
-		    ///generate more point(s)
-		    ///select random vertex
-		    ///calculate midpoint between random vertex and the last point in the vector
-		    ///push back the newly generated coord.
-			int randVertexIndex = rand() % vertices.size();
-			Vector2f selectedVertice = vertices.at(randVertexIndex);
-			Vector2f lastPoint = points.at(points.size() - 1);
-			Vector2f newPoint((selectedVertice.x + lastPoint.x) / 2, (selectedVertice.y + lastPoint.y) / 2);
-			points.push_back(newPoint);
+			// Generates more than one point per frame
+			for (int i = 0; i < 15; i++)
+			{
+				///generate more point(s)
+				///select random vertex
+				int randVertexIndex = rand() % vertices.size();
+				Vector2f selectedVertice = vertices.at(randVertexIndex);
+				///calculate midpoint between random vertex and the last point in the vector
+				Vector2f lastPoint = points.at(points.size() - 1);
+				Vector2f newPoint((selectedVertice.x + lastPoint.x) / 2, (selectedVertice.y + lastPoint.y) / 2);
+				///push back the newly generated coord.
+				points.push_back(newPoint);
+			}
 		}
 	
 		/*
