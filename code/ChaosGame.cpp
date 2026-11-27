@@ -25,7 +25,7 @@ int main()
 	
 	Text instructions;
 	instructions.setFont(font);
-	instructions.setString("Click on any three points on the screen, then, click on a fourth point to start the algorithm");
+	instructions.setString("Click on any three points on the screen, then click on a fourth point to start the algorithm");
 	instructions.setCharacterSize(24);
 
 	while (window.isOpen())
