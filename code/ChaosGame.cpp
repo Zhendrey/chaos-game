@@ -31,7 +31,10 @@ int main()
 
 	// Center the text on the screen
 	FloatRect textRect = instructions.getLocalBounds();
-	instructions.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
+	instructions.setOrigin(textRect.left +
+		textRect.width / 2.0f,
+		textRect.top);
+	instructions.setPosition(window.getSize().x / 2.0f, 15.0f);
 
 	while (window.isOpen())
 	{
@@ -97,6 +100,7 @@ int main()
 		*/
 		window.clear();
 		window.draw(instructions);
+		// vertices loop
 		for(int i = 0; i < vertices.size(); i++)
 		{
 		    RectangleShape rect(Vector2f(10,10));
@@ -104,14 +108,14 @@ int main()
 		    rect.setFillColor(Color::Blue);
 		    window.draw(rect);
 		}
+		// points loop
 		for (int i = 0; i < points.size(); i++)
 		{
-			RectangleShape rect(Vector2f(10, 10));
+			RectangleShape rect(Vector2f(5, 5));
 			rect.setPosition(Vector2f(points[i].x, points[i].y));
 			rect.setFillColor(Color::Blue);
 			window.draw(rect);
 		}
-		///TODO:  Draw points
 		window.display();
 	}
 }
