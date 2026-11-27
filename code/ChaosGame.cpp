@@ -47,6 +47,7 @@ int main()
 		    {
 			if (event.mouseButton.button == sf::Mouse::Left)
 			{
+				std::cout << "verticies: " << vertices.size() << std::endl;
 			    std::cout << "the left button was pressed" << std::endl;
 			    std::cout << "mouse x: " << event.mouseButton.x << std::endl;
 			    std::cout << "mouse y: " << event.mouseButton.y << std::endl;
@@ -57,6 +58,7 @@ int main()
 			    }
 			    else if(points.size() == 0)
 			    {
+				points.push_back(Vector2f(event.mouseButton.x, event.mouseButton.y));
 				///fourth click
 				///push back to points vector
 			    }
@@ -79,6 +81,8 @@ int main()
 		    ///select random vertex
 		    ///calculate midpoint between random vertex and the last point in the vector
 		    ///push back the newly generated coord.
+			int randVertexIndex = rand() % vertices.size();
+			Vector2f selectedVertice = vertices.at(randVertexIndex);
 		}
 	
 		/*
@@ -94,6 +98,13 @@ int main()
 		    rect.setPosition(Vector2f(vertices[i].x, vertices[i].y));
 		    rect.setFillColor(Color::Blue);
 		    window.draw(rect);
+		}
+		for (int i = 0; i < points.size(); i++)
+		{
+			RectangleShape rect(Vector2f(10, 10));
+			rect.setPosition(Vector2f(points[i].x, points[i].y));
+			rect.setFillColor(Color::Blue);
+			window.draw(rect);
 		}
 		///TODO:  Draw points
 		window.display();
